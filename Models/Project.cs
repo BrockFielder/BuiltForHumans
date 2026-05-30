@@ -17,9 +17,8 @@ public class Project
     [Required]
     public DateTime Date { get; set; }
     
-    //Image not implemented
-   // [Required]
-   // public List<Image> images {get; set;}
+   [Required]
+   public List<Image> images {get; set;}
    
    [Required]
    public String ProjectType { get; set; }
