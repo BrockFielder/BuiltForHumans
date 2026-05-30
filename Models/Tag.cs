@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BulitForHumans.Models;
 
-public class Tags
+public class Tag
 {
     [Key]
     public int Id { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public string name { get; set; }
+    public string Name { get; set; }
 }
