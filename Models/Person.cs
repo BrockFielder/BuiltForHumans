@@ -22,7 +22,6 @@ public class Person
     [MaxLength(100)]
     public Boolean ActiveEmployee { get; set; }
     
-    
     [Required]
     [MaxLength(100)]
     public DateTime StartDate { get; set; }
