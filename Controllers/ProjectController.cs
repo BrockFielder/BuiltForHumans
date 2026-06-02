@@ -1,3 +1,5 @@
+using BulitForHumans.Services;
+
 namespace BulitForHumans.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using BulitForHumans.Models;
@@ -5,7 +7,7 @@ using BulitForHumans.Models;
 [Route("projects")]
 public class ProjectController : Controller
 {
-    //private readonly IProjectService _projectService; Not implemented
+    private readonly IProjectService _projectService; 
     public ProjectController(IProjectService projectService)
     {
         _projectService = projectService;
@@ -19,8 +21,9 @@ public class ProjectController : Controller
     }
 
     [HttpGet("{id:int}")]
+    public async Task <IActionResult> GetProjectAsync(int id)
     {
-        Project project = _projectService.GetProjectByIdAsync(id);
+        Project project = await _projectService.GetProjectAsync(id);
         
         if (project == null){return NotFound();}
         

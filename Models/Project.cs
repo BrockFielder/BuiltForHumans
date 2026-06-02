@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 public class Project
 {
     [Key]
-    private int Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(100)]
@@ -18,7 +18,7 @@ public class Project
     public DateTime Date { get; set; }
     
    [Required]
-   public List<Image> images {get; set;}
+   public List<Image> Images {get; set;}
    
    [Required]
    public String ProjectType { get; set; }
@@ -28,6 +28,10 @@ public class Project
    
    [Required]
    public List<Tag> Tags { get; set; }
+   
+   [Required]
+   [MaxLength(100)]
+   public DateTime StartDate { get; set; }
    
    [Required]
    public Boolean IsFeatured { get; set; }
