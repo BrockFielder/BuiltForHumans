@@ -47,6 +47,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[10.0.8, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
             }
           },
           "imports": [
