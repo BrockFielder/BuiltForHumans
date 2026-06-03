@@ -13,7 +13,8 @@ public class AppDbContext : DbContext
     // These properties map directly to your database tables
     public DbSet<Project> Projects { get; set; }
     public DbSet<Tag> Tags { get; set; }
-    public DbSet<Image> Images { get; set; } // Assuming you have a model for images based on your service code
+    public DbSet<Image> Images { get; set; } 
+    public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

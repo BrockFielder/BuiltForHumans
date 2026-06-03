@@ -1,9 +1,8 @@
 using BulitForHumans.Models;
 
-namespace BuiltForHumans.Services;
+namespace BulitForHumans.Services;
 
 public interface IContactService
 {
-    // SubmitContactForm() — saves the message to DB and triggers an email notification
-    Task<bool> SubmitContactFormAsync(ContactMessage message);
+    Task SubmitContactFormAsync(ContactMessage message);
 }
