@@ -25,5 +25,14 @@ app.MapControllerRoute(
         pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddSingleton<IEmailSender, SendGridEmailSender>();
 
 app.Run();

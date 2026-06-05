@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f452569213203a005451e89b37bb41689f6a6ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c253a4fe3860659575d9d3e7bafd75a0f2f4e9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
