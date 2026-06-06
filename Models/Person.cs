@@ -28,4 +28,7 @@ public class Person
     
     [MaxLength(100)]
     public DateTime? EndDate { get; set; }
+
+    [MaxLength(1000)] 
+    public String? Bio { get; set; }
 }
