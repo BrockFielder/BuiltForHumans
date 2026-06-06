@@ -14,6 +14,7 @@ public class AppDbContext : DbContext
     public DbSet<Project> Projects { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Image> Images { get; set; } 
+    public DbSet<Person> Persons { get; set; }
     public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
