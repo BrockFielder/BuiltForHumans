@@ -96,3 +96,13 @@ C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\ref
 C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\BulitForHumans.pdb
 C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\BulitForHumans.genruntimeconfig.cache
 C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\ref\BulitForHumans.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Npgsql.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\SendGrid.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\bin\Debug\net10.0\StarkbankEcdsa.dll
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\BulitForHumans.csproj.AssemblyReference.cache
+C:\Users\brock\RiderProjects\BulitForHumans\BulitForHumans\obj\Debug\net10.0\BulitFor.5D863DEA.Up2Date

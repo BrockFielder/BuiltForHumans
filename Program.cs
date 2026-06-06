@@ -2,16 +2,24 @@ using BuiltForHumans.Services;
 using BulitForHumans.Data;
 using BulitForHumans.Services;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL; 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ── PHASE 1: register services (everything BEFORE Build) ──
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddSingleton<IEmailSender, SendGridEmailSender>();
+
+// ── WALL: container frozen here ──
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ── PHASE 2: configure the pipeline (everything AFTER Build) ──
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -22,7 +30,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseAuthorization(); 
+app.UseAuthorization();
 
 app.MapStaticAssets();
 
@@ -30,15 +38,5 @@ app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
-builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<IProjectService, ProjectService>();
-builder.Services.AddScoped<IPersonService, PersonService>();
-builder.Services.AddScoped<IContactService, ContactService>();
-builder.Services.AddSingleton<IEmailSender, SendGridEmailSender>();
 
 app.Run();

@@ -16,7 +16,7 @@ public class ProjectService : IProjectService
             .OrderByDescending(p => p.StartDate)
             .ToListAsync();
 
-    public async Task<Project> GetProjectAsync(int projectId) =>
+    public async Task<Project?> GetProjectAsync(int projectId) =>
         await _db.Projects
             .Include(p => p.Images)
             .Include(p => p.Tags)

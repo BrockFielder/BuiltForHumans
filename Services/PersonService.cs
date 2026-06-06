@@ -12,27 +12,23 @@ public class PersonService : IPersonService
     
     public async Task<IEnumerable<Person>> GetAllPersonsAsync() =>
         await _db.Persons
-            .Include(p => p.Id)
             .OrderByDescending(p => p.StartDate)
             .ToListAsync(); 
     
     public async Task<IEnumerable<Person>> GetCurrentMembersAsync()=>
         await _db.Persons
-            .Include(p => p.Id)
             .Where(p => p.ActiveEmployee == true)
             .OrderByDescending(p => p.StartDate)
             .ToListAsync();
     
     public async Task<IEnumerable<Person>> GetLegacyMembersAsync()=>
         await _db.Persons
-            .Include(p => p.Id)
             .Where(p => p.ActiveEmployee == false)
             .OrderByDescending(p => p.StartDate)
             .ToListAsync();
 
     public async Task<Person?> GetPersonByIdAsync(int id)=>
         await _db.Persons
-            .Include(p => p.Id)
             .Where(p => p.Id == id)
             .OrderByDescending(p => p.StartDate)
             .FirstOrDefaultAsync();
