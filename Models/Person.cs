@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 public class Person
 {
     [Key]
-    private int Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(100)]
