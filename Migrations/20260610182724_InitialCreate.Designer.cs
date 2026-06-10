@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BulitForHumans.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260610170950_InitialCreate")]
+    [Migration("20260610182724_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -82,9 +82,15 @@ namespace BulitForHumans.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PersonId")
+                        .IsUnique();
+
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Images");
+                    b.ToTable("Images", t =>
+                        {
+                            t.HasCheckConstraint("CK_Image_Owner_XOR", "(\"ProjectId\" IS NOT NULL AND \"PersonId\" IS NULL) OR (\"ProjectId\" IS NULL AND \"PersonId\" IS NOT NULL)");
+                        });
                 });
 
             modelBuilder.Entity("BulitForHumans.Models.Person", b =>
@@ -201,9 +207,15 @@ namespace BulitForHumans.Migrations
 
             modelBuilder.Entity("BulitForHumans.Models.Image", b =>
                 {
+                    b.HasOne("BulitForHumans.Models.Person", null)
+                        .WithOne()
+                        .HasForeignKey("BulitForHumans.Models.Image", "PersonId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("BulitForHumans.Models.Project", null)
                         .WithMany("Images")
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BulitForHumans.Models.Tag", b =>

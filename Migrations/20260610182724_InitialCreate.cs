@@ -81,11 +81,19 @@ namespace BulitForHumans.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => x.Id);
+                    table.CheckConstraint("CK_Image_Owner_XOR", "(\"ProjectId\" IS NOT NULL AND \"PersonId\" IS NULL) OR (\"ProjectId\" IS NULL AND \"PersonId\" IS NOT NULL)");
+                    table.ForeignKey(
+                        name: "FK_Images_Persons_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Images_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,6 +116,12 @@ namespace BulitForHumans.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Images_PersonId",
+                table: "Images",
+                column: "PersonId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Images_ProjectId",
                 table: "Images",
                 column: "ProjectId");
@@ -128,10 +142,10 @@ namespace BulitForHumans.Migrations
                 name: "Images");
 
             migrationBuilder.DropTable(
-                name: "Persons");
+                name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "Tags");
+                name: "Persons");
 
             migrationBuilder.DropTable(
                 name: "Projects");
