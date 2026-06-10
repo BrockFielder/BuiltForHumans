@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a9ff4867-b7bc-4cc5-b9f6-d6a45bbcbfa9")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59c617d1c22f513564718781fb10d11854b8c32f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1ef26e82ed2031ce1d1bd2fd03d056e280ba8e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BulitForHumans")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
