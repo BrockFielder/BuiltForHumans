@@ -1,0 +1,40 @@
+@model IEnumerable<Person>
+
+    @{
+    ViewData["Title"] = "Team";
+    }
+
+    <h1 class="mb-4">Team</h1>
+
+    @if (!Model.Any())
+    {
+    <p class="text-muted">No team members yet.</p>
+    }
+    else
+    {
+    <div class="row">
+        @foreach (var person in Model)
+        {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@person.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        @person.Title · @person.Location
+                    </h6>
+                    @if (!string.IsNullOrEmpty(person.Bio))
+                    {
+                    <p class="card-text">@person.Bio</p>
+                    }
+                    <a asp-controller="Person"
+                       asp-action="Detail"
+                       asp-route-id="@person.Id"
+                       class="mt-auto">
+                        View bio →
+                    </a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
