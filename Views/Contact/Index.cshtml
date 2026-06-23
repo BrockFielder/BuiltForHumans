@@ -1,14 +1,14 @@
 @model ContactMessage
 
 @{
-ViewData["Title"] = "Contact";
+    ViewData["Title"] = "Contact";
 }
 
 <h1 class="mb-4">Contact</h1>
 
 @if (TempData["ContactSuccess"] != null)
 {
-<div class="alert alert-success">@TempData["ContactSuccess"]</div>
+    <div class="alert alert-success">@TempData["ContactSuccess"]</div>
 }
 
 <div class="row">
@@ -40,5 +40,5 @@ ViewData["Title"] = "Contact";
 </div>
 
 @section Scripts {
-<partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
 }
