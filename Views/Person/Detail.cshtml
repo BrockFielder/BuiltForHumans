@@ -1,7 +1,7 @@
 @model Person
 
 @{
-ViewData["Title"] = Model.Name;
+    ViewData["Title"] = Model.Name;
 }
 
 <a asp-controller="Person" asp-action="Index">← Team</a>
@@ -13,19 +13,19 @@ ViewData["Title"] = Model.Name;
 <p class="text-muted">
     @if (Model.ActiveEmployee)
     {
-    <text>Joined @Model.StartDate.Year</text>
+        <text>Joined @Model.StartDate.Year</text>
     }
     else if (Model.EndDate.HasValue)
     {
-    <text>@Model.StartDate.Year – @Model.EndDate.Value.Year</text>
+        <text>@Model.StartDate.Year – @Model.EndDate.Value.Year</text>
     }
     else
     {
-    <text>Since @Model.StartDate.Year</text>
+        <text>Since @Model.StartDate.Year</text>
     }
 </p>
 
 @if (!string.IsNullOrEmpty(Model.Bio))
 {
-<p class="lead">@Model.Bio</p>
+    <p class="lead">@Model.Bio</p>
 }
